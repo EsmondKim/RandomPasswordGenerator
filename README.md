@@ -3,6 +3,12 @@ A webpage that takes user criteria to create a random and secure password.
 
 Users navigate a series of javascript confirm questions and input a numeric length for the password.  The user  selects specific criteria to include in the password, including: lower case letters, upper case letters, numbers, and special characters.  The code first provides at least one of each of the user's specifically selected password criteria, then the code fills out the rest of the password string, up to the password length selected by the user, with any number of random selections from the combined pool of user's designated criteria.
 
+Deployed website:
+[Here is a link to the deployed website](https://esmondkim.github.io/RandomPasswordGenerator/) 
+
+Sceenshots
+![And a screenshot](/Assets/Images/SiteScreenShot.jpg)
+
 This is the User Story for the site:
 ```
 AS AN employee with access to sensitive data
@@ -29,8 +35,4 @@ WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
 
 
-Deployed website:
-[Here is a link to the deployed website](https://esmondkim.github.io/RandomPasswordGenerator/) 
 
-Sceenshots
-![And a screenshot](/Assets/Images/SiteScreenShot.jpg)

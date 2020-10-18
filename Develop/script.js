@@ -17,105 +17,72 @@ function writePassword() {
     let upperCasePool = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
     let numbersPool = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
     let specialsPool = [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "-", "`", "{", "|", "}", "~"];
-    //A seriews of combined random pools of all possible password characters to further randomize the password after specific criteria is met.
-    let combinedRandomPoolLowUp = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-    let combinedRandomPoolLowUpNum = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-    let combinedRandomPoolAll = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", " ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "-", "`", "{", "|", "}", "~"]; 
-    //Declaring the selection variables to be used in the for loops.
+    //Declaring a variable to build an array of selected criteria.  
+    let criteriaArray = "";
+    //Declaring the selection variables to be used in if statements and the for loop.
     let lowerCaseSelection = "";
     let upperCaseSelection = "";
-    let numberSelection = "";
+    let numbersSelection = "";
     let specialsSelection = "";
-    let lowerUpperSelection = "";
-    let combinedRandomSelection = "";
-    //Declaring variables to be used in the various for loops.
-    let allLowersPass = "";
-    let allUppersPass = "";
-    let lowerUpperPass= "";
-    let allSpecialsPass = "";
-    /* The if statements and for loops conform to the provided password criteria, tested by true/false equality operators. */
-    //Letters here.
-    //Lower letters only.
-    if (lowerCasePrompt === true && upperCasePrompt === false && numbersPrompt == false && specialsPrompt === false) {
-      for (i = 0; lengthVariable > i; lengthVariable--) {
-        let lowerCaseRandomizer = Math.floor(Math.random() * lowerCasePool.length);
-        lowerCaseSelection = lowerCasePool[lowerCaseRandomizer];
-        allLowersPass = allLowersPass += lowerCaseSelection; 
-        }
-        console.log(allLowersPass);
-        return allLowersPass;
-      }
-    //Upper letters only.
-    if (lowerCasePrompt === false && upperCasePrompt === true && numbersPrompt == false && specialsPrompt === false) {
-      for (i = 0; lengthVariable > i; lengthVariable--) {
-        let upperCaseRandomizer = Math.floor(Math.random() * upperCasePool.length);
-        upperCaseSelection = upperCasePool[upperCaseRandomizer];
-        allUppersPass = allUppersPass += upperCaseSelection;
-        }
-        console.log(allUppersPass);
-        return allUppersPass;
-      }
-    //At lease one lowers, at least one upper, then mixed uppers and lowers.
-    if (lowerCasePrompt === true && upperCasePrompt === true && numbersPrompt == false && specialsPrompt === false) {
+    //Declaring a variable to count how many criteria the user selects.
+    let criteriaInvoked = 0;
+    //Declaraing a variable to hold lengthVariable minus criteriaInvoked.
+    let forLoopCounter = 0;
+    //Declaring variable to build the password string.
+    let passwordString = "";
+    //If statements build the criteriaArray and pull one index position each from every criteria selected.
+    confirm("Your password will be " + lengthVariable + " characters long.")
+
+       if(lowerCasePrompt === true) {
+      alert("Your password will include at least one lower case letter.");
+      criteriaArray = criteriaArray += lowerCasePool;
+      criteriaInvoked = criteriaInvoked + 1;
       let lowerCaseRandomizer = Math.floor(Math.random() * lowerCasePool.length);
       lowerCaseSelection = lowerCasePool[lowerCaseRandomizer];
-      lowerUpperPass = lowerUpperPass += lowerCaseSelection;
+      passwordString = passwordString += lowerCaseSelection;
+      console.log(passwordString);
+    }
+
+    if(upperCasePrompt === true) {
+      alert("Your password will include at least one upper case letter.");
+      criteriaArray = criteriaArray += upperCasePool;
+      criteriaInvoked = criteriaInvoked + 1;
       let upperCaseRandomizer = Math.floor(Math.random() * upperCasePool.length);
       upperCaseSelection = upperCasePool[upperCaseRandomizer];
-      lowerUpperPass = lowerUpperPass += upperCaseSelection
-      for (i = 0; (lengthVariable-2) > i; lengthVariable--) {
-      let lowerUpperRandomizer = Math.floor(Math.random() * combinedRandomPoolLowUp.length);
-      lowerUpperSelection = combinedRandomPoolLowUp[lowerUpperRandomizer];
-      lowerUpperPass = lowerUpperPass += lowerUpperSelection;
+      passwordString = passwordString += upperCaseSelection;
+      console.log(passwordString);
+    }
+
+    if(numbersPrompt === true) {
+      alert("Your password will include at least one number.");
+      criteriaArray = criteriaArray += numbersPool;
+      criteriaInvoked = criteriaInvoked + 1;
+      let numbersRandomizer = Math.floor(Math.random() * numbersPool.length);
+      numbersSelection = numbersPool[numbersRandomizer];
+      passwordString = passwordString += numbersSelection;
+      console.log(passwordString);   
+    }
+
+    if(specialsPrompt === true) {
+      alert("Your password will include at least one special character.");
+      criteriaArray = criteriaArray += specialsPool;
+      criteriaInvoked = criteriaInvoked + 1;
+      let specialsRandomizer = Math.floor(Math.random() * specialsPool.length);
+      specialsSelection = specialsPool[specialsRandomizer];
+      passwordString = passwordString += specialsSelection;
+      console.log(passwordString);   
+    }
+    console.log(criteriaInvoked);
+    forLoopCounter = lengthVariable - criteriaInvoked;
+    console.log(forLoopCounter);
+    //For loop fills in rest of password drawing from combined pull of selected criteria.
+    for (i = 0; forLoopCounter > i; forLoopCounter--) {
+      let criteriaArrayRandomizer = Math.floor(Math.random() * 10);
+      criteriaArraySelection = criteriaArray[criteriaArrayRandomizer];
+      passwordString = passwordString += criteriaArraySelection;
+      console.log(passwordString);
       }
-      console.log(lowerUpperPass);
-      return lowerUpperPass;
-      }
-      //Numbers here.
-      //Numbers only.
-      if (lowerCasePrompt === true && upperCasePrompt === false && numbersPrompt == false && specialsPrompt === false) {
-      for (i = 0; lengthVariable > i; lengthVariable--) {
-          let lowerCaseRandomizer = Math.floor(Math.random() * lowerCasePool.length);
-          lowerCaseSelection = lowerCasePool[lowerCaseRandomizer];
-          allLowersPass = allLowersPass += lowerCaseSelection; 
-          }
-          console.log(allLowersPass);
-          return allLowersPass;
-        }
-      //Numbers and lowers.
-
-      //Numbers and uppers.
-
-      //Numbers and specials.
-
-      //Numbers and lowers and uppers.
-
-      //Numbers and lowers and uppers and specials.
-
-      //Specials here.
-      //Specials only.
-      if (lowerCasePrompt === false && upperCasePrompt === false && numbersPrompt === false && specialsPrompt === true) {
-        for (i = 0; lengthVariable > i; lengthVariable--) {
-          let specialsRandomizer = Math.floor(Math.random() * specialsPool.length);
-          specialsSelection = specialsPool[specialsRandomizer];
-          allSpecialsPass = allSpecialsPass += specialsSelection; 
-          }
-          console.log(allSpecialsPass);
-          return allSpecialsPass;
-        }
-      //Specials and numbers.
-
-      //Specials and lowers.
-      
-      //Specials and uppers.
-
-      //Specials and numbers and lowers, then mixed.
-
-      //Specials and numbers and uppers, then mixed.
-
-      //specials and numbers and lowers and uppers, then mixed.
-
-
+    return passwordString;
   }
 
   var password = generatePassword();
