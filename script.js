@@ -11,7 +11,6 @@ function writePassword() {
     let upperCasePrompt = confirm("Would you like upper case letters in your password?");
     let numbersPrompt = confirm("Would you like numbers in your password?");
     let specialsPrompt = confirm("Do you want special characters in your password?")
-    let lengthVariable = prompt("How long do you want your password to be? You MUST enter a numeric digit between 8 and 128.")
     //Creating the array pools for if statements and for loops to draw from.
     /*Declared Pool and PoolSplit variables on separate lines as separate variable to avoid JavaScript for some reason 
     utilizing commas in final for loop that begins at line 101 when "abcdef".split(""); format was used on one line 
@@ -37,6 +36,14 @@ function writePassword() {
     let forLoopCounter = 0;
     //Declaring variable to build the password string.
     let passwordString = "";
+    //If statement to make sure at least one of the prompts/character types was selected.     
+    if(lowerCasePrompt === false && upperCasePrompt === false && numbersPrompt === false && specialsPrompt === false) {
+        alert("You MUST choose at least one of the character prompts: lower case, upper case, numbers, or special characters.");
+        passwordString = "Hit the Generate Password button and please be sure to chooose 'OK' for at least one of the character prompts for your password: upper case, lower case, numbers, or special characters."
+        return passwordString;
+        }
+    //Password length user prompt.
+    let lengthVariable = prompt("How long do you want your password to be? You MUST enter a numeric digit between 8 and 128.")
     //If statement to confirm a numberic digit between 8 and 128 was entered by user.
     if(lengthVariable < 8) {
       alert("You MUST enter a numeric digit between 8 and 128, please hit Generate Password button and start again.");
@@ -51,8 +58,9 @@ function writePassword() {
     else {
       alert("Your password will be " + lengthVariable + " characters long.");
     }
-      //If statements build the criteriaArray and pull one index position each from every criteria selected.  
-    if(lowerCasePrompt === true) {
+    //If statements build the criteriaArray and pull one index position each from every criteria selected. 
+    //Alerts confirm the types of characters the user selected.
+      if(lowerCasePrompt === true) {
       alert("Your password will include at least one lower case letter.");
       criteriaArray = criteriaArray += lowerCasePoolSplit;
       //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
