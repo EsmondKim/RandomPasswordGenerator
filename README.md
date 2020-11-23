@@ -1,11 +1,11 @@
 # RandomPasswordGenerator
-A webpage that takes user criteria to create a random and secure password.
+This webpage solves the problem of creating unique, secure, personal passowrds that include special characters and numbers to enhance security.  
 
-Users navigate a series of javascript confirm questions and input a numeric length for the password.  The user  selects specific criteria to include in the password, including: lower case letters, upper case letters, numbers, and special characters.  The code first provides at least one of each of the user's specifically selected password criteria, then the code fills out the rest of the password string, up to the password length, with any number of random selections from the combined pool of user's designated criteria.
+Users navigate a series of JavaScript confirm questions and input a numeric length for the password.  The user  selects specific criteria to include in the password, including: lower case letters, upper case letters, numbers, and special characters.  The code first provides at least one of each of the user's specifically selected password criteria, then the code fills out the rest of the password string, up to the password length, with any number of random selections from the combined pool of user's designated criteria.
+
+To use the app, open the webpage.  Start by clicking the "Generate Password" button.  Then, answer the prompts and follow the onscreen instructions until you have your unique, secure password.
 
 The code uses if/else statements to prevent the user from choosing less than 8 or more than 128 characters for the password length.  The .string method is applied to variables to build arrays for each password criterion, then the code builds another array that pools each of the user's selected criterion into one combined array utilized in a for loop that completes the password.
-
-The second commit (the commit immediately after the initial commit) features an attempt to use equality operators and if statements to account for every possible combination of the four password criterion.  With four criterion, though, the code was overwhelming using equality operators and if statements to account for every possible combination.  So, subsequent commits utilize code that focuses on meeting the users selected criteria at least once by building a combined array, then filling the remainder of the password out with random characters that are within the scope of the selected criteria.
 
 Deployed website:
 [Here is a link to the deployed website](https://esmondkim.github.io/RandomPasswordGenerator/) 
