@@ -30,6 +30,15 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+.checkboxes {
+  float: left;
+  margin-top: 5px;
+}
+
+.checkbox-question {
+  margin-left: 25px;
+}
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;

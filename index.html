@@ -16,6 +16,55 @@
         <div class="card-header">
           <h2>Generate a Password</h2>
         </div>
+
+        <input
+          class="checkboxes"
+          type="checkbox"
+          name="lowers"
+          id="lowers"
+          value="no"
+          onchange="lowersChange(this)"
+        />
+        <div class="checkbox-question">
+          Would you like lowercase letters in your password?
+        </div>
+
+        <input
+          class="checkboxes"
+          type="checkbox"
+          name="uppers"
+          id="uppers"
+          value="no"
+          onclick="uppersChange(this)"
+        />
+        <div class="checkbox-question">
+          Would you like uppercase letters in your password?
+        </div>
+
+        <input
+          class="checkboxes"
+          type="checkbox"
+          name="numbers"
+          id="numbers"
+          value="no"
+          onclick="numbersChange(this)"
+        />
+        <div class="checkbox-question">
+          Would you like numbers in your password?
+        </div>
+
+        <input
+          class="checkboxes"
+          type="checkbox"
+          name="specials"
+          id="specials"
+          value="no"
+          onclick="specialsChange(this)"
+        />
+        <div class="checkbox-question">
+          Do you want special characters in your password?
+        </div>
+
         <div class="card-body">
           <textarea
             readonly
