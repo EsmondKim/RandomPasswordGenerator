@@ -5,12 +5,15 @@ let uppersCheckbox = document.querySelector("input[name=uppers]");
 let numbersCheckbox = document.querySelector("input[name=numbers]");
 let specialsCheckbox = document.querySelector("input[name=specials]");
 let lengthVar = document.getElementById("length");
+let password = "Your randomly generated password will appear here.";
 
 // let password = generatePassword();
-let password = "Your randomly generated password will appear here.";
-let passwordText = document.querySelector("#password");
-passwordText.value = password;
+function setPasswordText() {
+  let passwordText = document.querySelector("#password");
+  passwordText.value = password;
+}
 
+setPasswordText();
 // Write password to the #password input
 function writePassword() {
   //Writing the function that generates the password.
@@ -98,53 +101,55 @@ function writePassword() {
   // }
   //If statements build the criteriaArray and pull one index position each from every criteria selected.
   //Alerts confirm the types of characters the user selected.
-  if (lowerCasePrompt === true) {
+
+  if (document.getElementById("lowers").checked === true) {
     alert("Your password will include at least one lower case letter.");
     criteriaArray = criteriaArray += lowerCasePoolSplit;
     //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
     criteriaInvoked = criteriaInvoked + 1;
+    console.log("this is criteria", criteriaInvoked);
     let lowerCaseRandomizer = Math.floor(Math.random() * lowerCasePool.length);
     lowerCaseSelection = lowerCasePool[lowerCaseRandomizer];
     passwordString = passwordString += lowerCaseSelection;
     console.log(passwordString);
   }
+  // if (document.getElementById("uppers").checked === true) {
+  //   alert("Your password will include at least one upper case letter.");
+  //   criteriaArray = criteriaArray += upperCasePoolSplit;
+  //   //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
+  //   criteriaInvoked = criteriaInvoked + 1;
+  //   let upperCaseRandomizer = Math.floor(Math.random() * upperCasePool.length);
+  //   upperCaseSelection = upperCasePool[upperCaseRandomizer];
+  //   passwordString = passwordString += upperCaseSelection;
+  //   console.log(passwordString);
+  // }
 
-  if (upperCasePrompt === true) {
-    alert("Your password will include at least one upper case letter.");
-    criteriaArray = criteriaArray += upperCasePoolSplit;
-    //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
-    criteriaInvoked = criteriaInvoked + 1;
-    let upperCaseRandomizer = Math.floor(Math.random() * upperCasePool.length);
-    upperCaseSelection = upperCasePool[upperCaseRandomizer];
-    passwordString = passwordString += upperCaseSelection;
-    console.log(passwordString);
-  }
+  // if (document.getElementById("numbers").checked === true) {
+  //   alert("Your password will include at least one number.");
+  //   criteriaArray = criteriaArray += numbersPoolSplit;
+  //   //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
+  //   criteriaInvoked = criteriaInvoked + 1;
+  //   let numbersRandomizer = Math.floor(Math.random() * numbersPool.length);
+  //   numbersSelection = numbersPool[numbersRandomizer];
+  //   passwordString = passwordString += numbersSelection;
+  //   console.log(passwordString);
+  // }
 
-  if (numbersPrompt === true) {
-    alert("Your password will include at least one number.");
-    criteriaArray = criteriaArray += numbersPoolSplit;
-    //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
-    criteriaInvoked = criteriaInvoked + 1;
-    let numbersRandomizer = Math.floor(Math.random() * numbersPool.length);
-    numbersSelection = numbersPool[numbersRandomizer];
-    passwordString = passwordString += numbersSelection;
-    console.log(passwordString);
-  }
-
-  if (specialsPrompt === true) {
-    alert("Your password will include at least one special character.");
-    criteriaArray = criteriaArray += specialsPoolSplit;
-    //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
-    criteriaInvoked = criteriaInvoked + 1;
-    let specialsRandomizer = Math.floor(Math.random() * specialsPool.length);
-    specialsSelection = specialsPool[specialsRandomizer];
-    passwordString = passwordString += specialsSelection;
-    console.log(passwordString);
-  }
-  console.log(criteriaInvoked);
-  forLoopCounter = lengthVariable - criteriaInvoked;
-  console.log(forLoopCounter);
+  // if (document.getElementById("specials").checked === true) {
+  //   alert("Your password will include at least one special character.");
+  //   criteriaArray = criteriaArray += specialsPoolSplit;
+  //   //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
+  //   criteriaInvoked = criteriaInvoked + 1;
+  //   let specialsRandomizer = Math.floor(Math.random() * specialsPool.length);
+  //   specialsSelection = specialsPool[specialsRandomizer];
+  //   passwordString = passwordString += specialsSelection;
+  //   console.log(passwordString);
+  // }
+  console.log("This is line 146 criteria", criteriaInvoked);
+  forLoopCounter = lengthVar.value - criteriaInvoked;
+  console.log("this is for loop counter", forLoopCounter);
   //For loop fills in rest of password drawing from combined pull of selected criteria.
+  console.log("BEFORE FOR LOOP!!");
   for (i = 0; forLoopCounter > i; forLoopCounter--) {
     let criteriaArrayRandomizer = Math.floor(
       Math.random() * criteriaArray.length
@@ -153,13 +158,17 @@ function writePassword() {
     passwordString = passwordString += criteriaArraySelection;
     console.log(passwordString);
   }
-  return passwordString;
-  // }
-
-  // let password = generatePassword();
-  // let passwordText = document.querySelector("#password");
-  // passwordText.value = password;
+  console.log(passwordString);
+  password = passwordString;
+  console.log("This is the password", password);
+  setPasswordText();
+  return;
 }
+
+//   let password = writePassword();
+//   let passwordText = document.querySelector("#password");
+//   passwordText.value = password;
+// }
 
 // Add event listener to generate button
 generatePasswordBtn.addEventListener("click", writePassword);
