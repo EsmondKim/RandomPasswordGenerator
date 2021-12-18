@@ -35,6 +35,11 @@ header {
   margin-top: 5px;
 }
 
+.number-entry {
+  float: left;
+  margin-top: 5px;
+}
+
 .checkbox-question {
   margin-left: 25px;
 }
