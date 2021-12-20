@@ -48,10 +48,6 @@ header {
   margin-top: 5px;
 }
 
-.numbers-box {
-  overflow: scroll;
-}
-
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -95,7 +91,7 @@ header {
 }
 
 .password-text {
-  overflow: scroll;
+  height: 275px;
 }
 
 .btn {
