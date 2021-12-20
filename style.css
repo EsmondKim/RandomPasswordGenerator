@@ -12,6 +12,14 @@ body,
   padding: 0;
 }
 
+.h1-header {
+  text-align: center;
+}
+
+.h2-header {
+  text-align: center;
+}
+
 body {
   font-family: sans-serif;
   background-color: #f9fbfd;
@@ -40,8 +48,8 @@ header {
   margin-top: 5px;
 }
 
-.checkbox-question {
-  margin-left: 25px;
+.numbers-box {
+  overflow: scroll;
 }
 
 .card {
@@ -84,6 +92,10 @@ header {
   content: " ";
   display: block;
   clear: both;
+}
+
+.password-text {
+  overflow: scroll;
 }
 
 .btn {

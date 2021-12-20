@@ -5,80 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="wrapper">
-      <header>
+      <header class="col-12 h1-header">
         <h1>Password Generator</h1>
       </header>
       <div class="card">
-        <div class="card-header">
+        <div class="col-12 card-header h2-header">
           <h2>Generate a Password</h2>
         </div>
 
-        <input
-          class="checkboxes"
-          type="checkbox"
-          name="lowers"
-          id="lowers"
-          value="no"
-          onchange="lowersChange(this)"
-        />
-        <div class="checkbox-question">
-          Would you like lowercase letters in your password?
+        <br />
+
+        <div class="row">
+          <input
+            class="col-1 checkboxes"
+            type="checkbox"
+            name="lowers"
+            id="lowers"
+            value="no"
+            onchange="lowersChange(this)"
+          />
+          <p class="col-11">
+            Would you like lowercase letters in your password?
+          </p>
         </div>
 
-        <input
-          class="checkboxes"
-          type="checkbox"
-          name="uppers"
-          id="uppers"
-          value="no"
-          onclick="uppersChange(this)"
-        />
-        <div class="checkbox-question">
-          Would you like uppercase letters in your password?
+        <div class="row">
+          <input
+            class="col-1 checkboxes"
+            type="checkbox"
+            name="uppers"
+            id="uppers"
+            value="no"
+            onclick="uppersChange(this)"
+          />
+          <p class="col-11">
+            Would you like uppercase letters in your password?
+          </p>
         </div>
 
-        <input
-          class="checkboxes"
-          type="checkbox"
-          name="numbers"
-          id="numbers"
-          value="no"
-          onclick="numbersChange(this)"
-        />
-        <div class="checkbox-question">
-          Would you like numbers in your password?
+        <div class="row">
+          <input
+            class="col-1 checkboxes"
+            type="checkbox"
+            name="numbers"
+            id="numbers"
+            value="no"
+            onclick="numbersChange(this)"
+          />
+          <p class="col-11">Would you like numbers in your password?</p>
         </div>
 
-        <input
-          class="checkboxes"
-          type="checkbox"
-          name="specials"
-          id="specials"
-          value="no"
-          onclick="specialsChange(this)"
-        />
-        <div class="checkbox-question">
-          Do you want special characters in your password?
+        <div class="row">
+          <input
+            class="col-1 checkboxes"
+            type="checkbox"
+            name="specials"
+            id="specials"
+            value="no"
+            onclick="specialsChange(this)"
+          />
+          <p class="col-11">Do you want special characters in your password?</p>
         </div>
 
-        <label class="number-entry" for="quantity"
-          >Enter a number length for your password, between 8 and 128:</label
-        >
-        <input type="number" id="length" name="length" min="8" max="28" />
+        <div class="row">
+          <div class="col-1"></div>
+          <label class="row col-10 number-entry" for="quantity"
+            >Enter a number length for your password, between 8 and 128:
+          </label>
+          <div class="col-1"></div>
+        </div>
 
-        <div class="card-body">
+        <div class="row">
+          <div class="col-1"></div>
+          <input
+            class="col-2 numbers-box"
+            type="number"
+            id="length"
+            name="length"
+            min="8"
+            max="28"
+          />
+          <div class="col-8"></div>
+        </div>
+
+        <div class="col-12 card-body">
           <textarea
             readonly
+            class="password-text"
             id="password"
             placeholder="Your Secure Password"
             aria-label="Generated Password"
           ></textarea>
         </div>
-        <div class="card-footer">
+        <div class="col-12 card-footer">
           <button id="generatePasswordBtn" class="btn">
             Generate Password
           </button>
