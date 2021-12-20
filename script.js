@@ -113,38 +113,38 @@ function writePassword() {
     passwordString = passwordString += lowerCaseSelection;
     console.log(passwordString);
   }
-  // if (document.getElementById("uppers").checked === true) {
-  //   alert("Your password will include at least one upper case letter.");
-  //   criteriaArray = criteriaArray += upperCasePoolSplit;
-  //   //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
-  //   criteriaInvoked = criteriaInvoked + 1;
-  //   let upperCaseRandomizer = Math.floor(Math.random() * upperCasePool.length);
-  //   upperCaseSelection = upperCasePool[upperCaseRandomizer];
-  //   passwordString = passwordString += upperCaseSelection;
-  //   console.log(passwordString);
-  // }
+  if (document.getElementById("uppers").checked === true) {
+    alert("Your password will include at least one upper case letter.");
+    criteriaArray = criteriaArray += upperCasePoolSplit;
+    //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
+    criteriaInvoked = criteriaInvoked + 1;
+    let upperCaseRandomizer = Math.floor(Math.random() * upperCasePool.length);
+    upperCaseSelection = upperCasePool[upperCaseRandomizer];
+    passwordString = passwordString += upperCaseSelection;
+    console.log(passwordString);
+  }
+  if (document.getElementById("numbers").checked === true) {
+    alert("Your password will include at least one number.");
+    criteriaArray = criteriaArray += numbersPoolSplit;
+    //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
+    criteriaInvoked = criteriaInvoked + 1;
+    let numbersRandomizer = Math.floor(Math.random() * numbersPool.length);
+    numbersSelection = numbersPool[numbersRandomizer];
+    console.log("This be numbers selection.", numbersSelection);
+    passwordString = passwordString += numbersSelection;
+    console.log(passwordString);
+  }
 
-  // if (document.getElementById("numbers").checked === true) {
-  //   alert("Your password will include at least one number.");
-  //   criteriaArray = criteriaArray += numbersPoolSplit;
-  //   //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
-  //   criteriaInvoked = criteriaInvoked + 1;
-  //   let numbersRandomizer = Math.floor(Math.random() * numbersPool.length);
-  //   numbersSelection = numbersPool[numbersRandomizer];
-  //   passwordString = passwordString += numbersSelection;
-  //   console.log(passwordString);
-  // }
-
-  // if (document.getElementById("specials").checked === true) {
-  //   alert("Your password will include at least one special character.");
-  //   criteriaArray = criteriaArray += specialsPoolSplit;
-  //   //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
-  //   criteriaInvoked = criteriaInvoked + 1;
-  //   let specialsRandomizer = Math.floor(Math.random() * specialsPool.length);
-  //   specialsSelection = specialsPool[specialsRandomizer];
-  //   passwordString = passwordString += specialsSelection;
-  //   console.log(passwordString);
-  // }
+  if (document.getElementById("specials").checked === true) {
+    alert("Your password will include at least one special character.");
+    criteriaArray = criteriaArray += specialsPoolSplit;
+    //Tried to invoke criteriaInvoked++ iterater here, but elected for long form to avoid strange results.
+    criteriaInvoked = criteriaInvoked + 1;
+    let specialsRandomizer = Math.floor(Math.random() * specialsPool.length);
+    specialsSelection = specialsPool[specialsRandomizer];
+    passwordString = passwordString += specialsSelection;
+    console.log(passwordString);
+  }
   console.log("This is line 146 criteria", criteriaInvoked);
   forLoopCounter = lengthVar.value - criteriaInvoked;
   console.log("this is for loop counter", forLoopCounter);
